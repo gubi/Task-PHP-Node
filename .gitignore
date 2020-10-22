@@ -1,0 +1,3 @@
+*.zip
+node/node_modules/*
+php/node_modules/*
