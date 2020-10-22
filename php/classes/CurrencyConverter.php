@@ -6,7 +6,7 @@ class CurrencyConverter {
      * @param  string           $currency               The given currency
      * @return float                                    The random exchange rate
      */
-    private function getExchangeRate($currency) {
+    private static function getExchangeRate($currency) {
         $rate = mt_rand(0, 200) / 100;
         return $rate;
     }
@@ -17,7 +17,7 @@ class CurrencyConverter {
      * @param  string           $currency                   The preferred currency
      * @return string                                       The converted amount
      */
-    protected function convert($amount, $currency = null) {
+    protected static function convert($amount, $currency = null) {
         $currencies = ["EUR" => "€", "USD" => "$", "GBP" => "£"];
 
         $am = preg_match('/([^\d])([\d\.\,]+)/u', $amount, $matched);
