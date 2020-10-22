@@ -1,3 +1,9 @@
+> Being a senior developer means **I've already done** (one year ago)
+
+The following text is in italian
+
+
+
 DEV CHALLENGE
 ===============================
 
@@ -5,11 +11,38 @@ Il compito è stato risolto utilizzando sia PHP (v7.3.5) che NodeJs (v11.15.0).<
 Lo script in PHP è eseguibile sia da browser che da Terminale.<br />
 Lo script in NodeJs è raggiungibile sia con browser che con Postman.
 
-Tempo di sviluppo totale: 1 giorno
+Tempo di sviluppo totale: 1 giorno (11/05/2019)
 
 # Esecuzione con PHP
 ## Posizionamento dello script
 Posizionare la directory `TASK` in un percorso eseguibile dal web server (ad es: `/var/www`)
+
+## Configurazione di Apache2 in locale
+```
+<VirtualHost *:80>
+        ServerName task-php-node.local
+        ServerAdmin webmaster@localhost
+
+        ErrorLog ${APACHE_LOG_DIR}/error.task-php-node.log
+        CustomLog ${APACHE_LOG_DIR}/access.task-php-node.log combined
+
+        DocumentRoot /var/www/task-php-node/php
+        <Directory /var/www/task-php-node/php/>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Order allow,deny
+            allow from all
+        </Directory>
+</VirtualHost>
+```
+
+Non dimenticate di abilitare l'indirizzo `task-php-node.local` nel file `/etc/hosts`
+
+`$> sudo vi /etc/hosts`
+e aggiungere la riga
+`127.0.0.1               task-php-node.local`
+
+
 ## Esecuzione
 ### Browser
 Per eseguire lo script da browser è necessario richiamare il file di index seguito dai seguenti filtri per cambiare l'output.<br />
@@ -68,8 +101,9 @@ Lo script funzionerà nello stesso modo dell'esempio precedente.
 
 
 # Note riguardo allo sviluppo
-Nella versione in NodeJs non è stato implementata la finta conversione della valuta (lo si potrebbe fare semplicemente con `Math.random`).
+Nella versione in NodeJs non è stata implementata la finta conversione della valuta (lo si potrebbe fare semplicemente con `Math.random`).
 
+-------------------------------------------
 -------------------------------------------
 > ### Obiettivo
 
